@@ -1,6 +1,10 @@
 #include "Game.h"
+#include "TextureManager.h"
+
 
 SDL_Texture* playerTex;
+SDL_Texture* enemyTex;
+SDL_Rect srcR, destR;
 
 Game::Game()
 {
@@ -45,9 +49,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	SDL_Surface* tmpSurface = IMG_Load("assets/Jack_The_Apprentice.png");
-	playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-	SDL_FreeSurface(tmpSurface);
+	//Use to load the texture
+	playerTex = TextureManager::LoadTexture("assets/Jack_The_Apprentice.png", renderer);
+	enemyTex = TextureManager::LoadTexture("assets/Atlantic_Bass.png", renderer);
 }
 
 void Game::handleEvents()
@@ -69,13 +73,18 @@ void Game::update()
 {
 	count++;
 	std::cout << count << std::endl;
+	destR.h = 128;
+	destR.w = 128;
+	destR.x = count;
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
 	//this is where we would add stuff to render
-	SDL_RenderCopy(renderer, playerTex, NULL, NULL);
+	SDL_RenderCopy(renderer, playerTex, NULL, &destR);
+	SDL_RenderCopy(renderer,enemyTex, NULL, NULL);
+
 	SDL_RenderPresent(renderer);
 
 
