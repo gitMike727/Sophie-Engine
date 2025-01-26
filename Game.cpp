@@ -1,5 +1,7 @@
 #include "Game.h"
 
+SDL_Texture* playerTex;
+
 Game::Game()
 {
 }
@@ -22,7 +24,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	{
 		std::cout << "Subsystems Initialised..." << std::endl;
 
-		window = SDL_CreateWindow(title, xpos, ypos, width, height, fullscreen);
+		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, fullscreen);
 		if (window)
 		{
 			std::cout << "Window created!" << std::endl;
@@ -42,6 +44,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	{
 		isRunning = false;
 	}
+
+	SDL_Surface* tmpSurface = IMG_Load("assets/Jack_The_Apprentice.png");
+	playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	SDL_FreeSurface(tmpSurface);
 }
 
 void Game::handleEvents()
@@ -69,7 +75,9 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 	//this is where we would add stuff to render
+	SDL_RenderCopy(renderer, playerTex, NULL, NULL);
 	SDL_RenderPresent(renderer);
+
 
 }
 
