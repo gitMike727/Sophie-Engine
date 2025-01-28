@@ -4,6 +4,8 @@
 
 GameObject* player;
 
+SDL_Renderer* Game::renderer = nullptr;
+
 Game::Game()
 {
 }
@@ -47,7 +49,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = new GameObject("assets/Jack_The_Apprentice.png", renderer);
+	player = new GameObject("assets/Jack_The_Apprentice.png", 0, 0);
 	
 }
 

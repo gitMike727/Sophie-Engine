@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	game = new Game();
 
 	//game window
-	game->init("Sophie Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1200, 1000, false);	
+	game->init("Sophie Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 640, false);	
 	 
 
 	while (game->running()) {
