@@ -1,10 +1,15 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "GameObject.h"
+#include "Map.h"
+#include "ECS.h"
+#include "Component.h"
 
-GameObject* player;
+Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
+
+Manager manager;
+auto& Player(manager.addEntity());
 
 Game::Game()
 {
@@ -49,15 +54,19 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = new GameObject("assets/Jack_The_Apprentice.png", 0, 0);
-	
+	map = new Map();
+
+	Player.addComponent<PositionComponent>();
+	Player.addComponent<SpriteComponent>("assets/Jack_The_Apprentice.png");
 }
 
 void Game::handleEvents()
 {
 	SDL_Event event;
-	SDL_PollEvent(&event);
-	switch (event.type)
+
+	SDL_PollEvent( &event );
+
+	switch ( event.type )
 	{
 	case SDL_QUIT:
 		isRunning = false;
@@ -70,14 +79,22 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	player->update();
+	manager.refresh();
+	manager.update();
+	
+	if (Player.getComponent<PositionComponent>().x() > 100)
+	{
+		Player.getComponent<SpriteComponent>().setTex("assets/Atlantic_Bass.png");
+	}
+	
 }
 
 void Game::render()
 {
 
 	SDL_RenderClear(renderer);
-	player->render();
+	map->DrawMap();
+	manager.draw();
 	SDL_RenderPresent(renderer);
 
 
