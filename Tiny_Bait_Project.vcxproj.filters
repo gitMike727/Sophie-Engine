@@ -16,18 +16,27 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{ba2610df-4d00-470f-a6c3-8760e26fa2e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{c1050549-ac00-4aaa-9aca-9aac3e844465}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
