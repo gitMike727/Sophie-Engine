@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "TextureManager.h"
 #include <iostream>
 
 Engine* Engine::s_Instance = nullptr;
@@ -22,16 +23,25 @@ bool Engine::Init()
 		return false;
 	}
 
+	TextureManager::GetInstance()->Load("Player Character", "assets/Jack_The_Apprentice.png");
+
 	return m_IsRunning = true;
 }
 
 bool Engine::Clean()
 {
+	TextureManager::GetInstance()->Clean();
+	SDL_DestroyRenderer(m_Renderer);
+	SDL_DestroyWindow(m_Window);
+	IMG_Quit();
+	SDL_Quit();
+
 	return false;
 }
 
 void Engine::Quit()
 {
+	m_IsRunning = false;
 }
 
 void Engine::Update()
@@ -43,6 +53,8 @@ void Engine::Render()
 {
 	SDL_SetRenderDrawColor(m_Renderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_Renderer);
+
+	TextureManager::GetInstance()->Draw("Player Character", 100, 100, 32, 32);
 	SDL_RenderPresent(m_Renderer);
 }
 
