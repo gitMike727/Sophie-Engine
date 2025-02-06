@@ -15,10 +15,12 @@ bool TextureManager::Load(std::string id, std::string filename)
 		return false;
 	}
 
+	m_TextureMap[id] = texture;
 	return true;
 }
 void TextureManager::Draw(std::string id, int x, int y, int width, int height, SDL_RendererFlip flip)
 {
+	SDL_Rect srcRect = { 0, 0, width, height};
 }
 
 void TextureManager::Drop(std::string id)
