@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "TextureManager.h"
+#include "Transform.h"
 #include <iostream>
 
 Engine* Engine::s_Instance = nullptr;
@@ -24,6 +25,9 @@ bool Engine::Init()
 	}
 
 	TextureManager::GetInstance()->Load("Player Character", "assets/Jack_The_Apprentice.png");
+
+	Transform tf;
+	tf.Log();
 
 	return m_IsRunning = true;
 }
