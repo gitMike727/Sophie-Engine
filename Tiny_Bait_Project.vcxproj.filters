@@ -53,5 +53,8 @@
     <ClInclude Include="IObject.h">
       <Filter>Source Files\Object</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\Object</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
