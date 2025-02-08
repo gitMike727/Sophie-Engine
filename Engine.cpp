@@ -53,7 +53,7 @@ void Engine::Quit()
 
 void Engine::Update()
 {
-	jack->Update(1);
+	jack->Update(0);
 }									 
 
 void Engine::Render()
@@ -62,6 +62,7 @@ void Engine::Render()
 	SDL_RenderClear(m_Renderer);
 
 	jack->Draw();
+	
 	SDL_RenderPresent(m_Renderer);
 }
 
