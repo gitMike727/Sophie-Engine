@@ -1,9 +1,11 @@
 #include "Engine.h"
 #include "TextureManager.h"
 #include "Transform.h"
+#include "PlayerCharacter.h"
 #include <iostream>
 
 Engine* Engine::s_Instance = nullptr;
+PlayerCharacter* jack = nullptr;
 
 bool Engine::Init()
 {
@@ -24,7 +26,8 @@ bool Engine::Init()
 		return false;
 	}
 
-	TextureManager::GetInstance()->Load("Player Character", "assets/Jack_The_Apprentice.png");
+	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
+	jack = new PlayerCharacter(new Properties("Jack", 100, 500, 32, 32));
 
 	Transform tf;
 	tf.Log();
@@ -50,7 +53,7 @@ void Engine::Quit()
 
 void Engine::Update()
 {
-	
+	jack->Update(1);
 }									 
 
 void Engine::Render()
@@ -58,7 +61,7 @@ void Engine::Render()
 	SDL_SetRenderDrawColor(m_Renderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_Renderer);
 
-	TextureManager::GetInstance()->Draw("Player Character", 100, 100, 32, 32);
+	jack->Draw();
 	SDL_RenderPresent(m_Renderer);
 }
 

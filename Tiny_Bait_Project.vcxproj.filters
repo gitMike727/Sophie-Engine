@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Object">
       <UniqueIdentifier>{a397551d-ed37-4879-a4af-59f3a09f4023}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Character">
+      <UniqueIdentifier>{05752b7b-babe-4541-87af-5daacbe7f2cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>Source Files\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="IObject.h">
       <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Source Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
+      <Filter>Source Files\Character</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Source Files\Object</Filter>
