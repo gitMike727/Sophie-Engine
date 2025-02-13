@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include "Transform.h"
 #include "PlayerCharacter.h"
+#include "Input.h"
 #include <iostream>
 
 Engine* Engine::s_Instance = nullptr;
@@ -26,8 +27,9 @@ bool Engine::Init()
 		return false;
 	}
 
-	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice_Walk_Sheet.png");
-	jack = new PlayerCharacter(new Properties("Jack", 100, 500, 32, 32));
+	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
+	TextureManager::GetInstance()->Load("Jack_Walk", "assets/Jack_The_Apprentice_Walk_Sheet.png");
+	jack = new PlayerCharacter(new Properties("Jack", 100, 100, 32, 32));
 
 	Transform tf;
 	tf.Log();
@@ -54,6 +56,7 @@ void Engine::Quit()
 void Engine::Update()
 {
 	jack->Update(0);
+	
 }									 
 
 void Engine::Render()
@@ -68,14 +71,5 @@ void Engine::Render()
 
 void Engine::Event()
 {
-	SDL_Event event;
-	SDL_PollEvent(&event);
-	switch (event.type)
-	{
-	case SDL_QUIT:
-		m_IsRunning = false;
-		break;
-	default:
-		break;
-	}
+	Input::GetInstance()->Listen();
 }

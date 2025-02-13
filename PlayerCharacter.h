@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "Animation.h"
+#include "RigidBody.h"
 
 class PlayerCharacter: public Character {
 
@@ -17,4 +18,5 @@ private:
 	//int m_AnimSpeed;
 
 	Animation* m_Animation;
+	RigidBody* m_RigidBody;
 };

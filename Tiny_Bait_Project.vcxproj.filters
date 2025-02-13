@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{0cb8c810-1f4f-459d-9201-2a72c165f948}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Inputs">
+      <UniqueIdentifier>{54d342a5-c31c-4180-80f2-1829bca0658e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Inputs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="RigidBody.h">
       <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Source Files\Inputs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
