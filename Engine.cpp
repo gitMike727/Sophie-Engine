@@ -26,7 +26,7 @@ bool Engine::Init()
 		return false;
 	}
 
-	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
+	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice_Walk_Sheet.png");
 	jack = new PlayerCharacter(new Properties("Jack", 100, 500, 32, 32));
 
 	Transform tf;

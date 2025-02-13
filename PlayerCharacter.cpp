@@ -5,14 +5,13 @@
 
 PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 {
-    m_Row = 1;
-    m_FrameCount = 1;
-    m_AnimSpeed = 80;
+    m_Animation = new Animation();
+    m_Animation->SetProps(m_TextureID, 1, 8, 80, SDL_FLIP_HORIZONTAL);
 }
 
 void PlayerCharacter::Draw()
 {
-    TextureManager::GetInstance()->DrawFrame(m_TextureID, m_Transform->X, m_Transform->Y, m_Width, m_Height, m_Row, m_Frame, m_Flip);
+    m_Animation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height);
 }
 
 void PlayerCharacter::Clean()
@@ -22,6 +21,6 @@ void PlayerCharacter::Clean()
 
 void PlayerCharacter::Update(float dt)
 {
-    
-    m_Frame = (SDL_GetTicks() / m_AnimSpeed) % m_FrameCount;
+    m_Animation->Update();
+   // m_Frame = (SDL_GetTicks() / m_AnimSpeed) % m_FrameCount;
 }

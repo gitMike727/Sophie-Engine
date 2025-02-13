@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Character">
       <UniqueIdentifier>{05752b7b-babe-4541-87af-5daacbe7f2cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Animation">
+      <UniqueIdentifier>{0cb8c810-1f4f-459d-9201-2a72c165f948}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -41,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="PlayerCharacter.cpp">
       <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Source Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Source Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Source Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

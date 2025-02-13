@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Character.h"
-
+#include "Animation.h"
 
 class PlayerCharacter: public Character {
 
@@ -13,7 +13,8 @@ public:
 	virtual void Update(float dt);
 
 private:
-	int m_Row, m_Frame, m_FrameCount;
+	//int m_Row, m_Frame, m_FrameCount;
+	//int m_AnimSpeed;
 
-	int m_AnimSpeed;
+	Animation* m_Animation;
 };
