@@ -8,7 +8,7 @@ PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 {
     m_RigidBody = new RigidBody();
     m_Animation = new Animation();
-    m_Animation->SetProps(m_TextureID, 1, 1, 100);
+    m_Animation->SetProps(m_TextureID, 1, 1, 60);
 }
 
 void PlayerCharacter::Draw()
@@ -32,11 +32,11 @@ void PlayerCharacter::Update(float dt)
 
    if (idle != 0)
    {
-       m_Animation->SetProps("JackBack", 1, 1, 100);
+       m_Animation->SetProps("JackBack", 1, 1, 60);
    }
    else
    {
-       m_Animation->SetProps("Jack", 1, 1, 100);
+       m_Animation->SetProps("Jack", 1, 1, 60);
    }
 
     m_RigidBody->UnSetForce();
@@ -45,7 +45,7 @@ void PlayerCharacter::Update(float dt)
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S))
     {
         m_RigidBody->ApplyForceY(4);
-        m_Animation->SetProps("Jack_Walk", 1, 8, 100);
+        m_Animation->SetProps("Jack_Walk", 1, 8, 60);
         SDL_Log("Key S Pushed!");
         idle = 0;
     }
@@ -55,7 +55,7 @@ void PlayerCharacter::Update(float dt)
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W))
     {
         m_RigidBody->ApplyForceY(-4);
-        m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
+        m_Animation->SetProps("Jack_BackWalk", 1, 8, 60);
         SDL_Log("Key W Pushed!");
         idle = 1;
     }
