@@ -28,8 +28,10 @@ bool Engine::Init()
 	}
 
 	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
+	TextureManager::GetInstance()->Load("JackBack", "assets/Jack_The_Apprentice_Back.png");
 	TextureManager::GetInstance()->Load("Jack_Walk", "assets/Jack_The_Apprentice_Walk_Sheet.png");
-	jack = new PlayerCharacter(new Properties("Jack", 100, 100, 32, 32));
+	TextureManager::GetInstance()->Load("Jack_BackWalk", "assets/Jack_The_Apprentice_BackWalk_Sheet.png");
+	jack = new PlayerCharacter(new Properties("Jack", 100, 100, 64, 64));
 
 	Transform tf;
 	tf.Log();

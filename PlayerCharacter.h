@@ -13,6 +13,8 @@ public:
 	virtual void Clean();
 	virtual void Update(float dt);
 
+	int idle;
+
 private:
 	//int m_Row, m_Frame, m_FrameCount;
 	//int m_AnimSpeed;
