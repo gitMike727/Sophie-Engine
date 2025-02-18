@@ -5,6 +5,11 @@
 #define UNI_MASS 1.0f
 #define GRAVITY 0.0f
 
+#define UPWARD -1
+#define DOWNWARD 1	
+#define LEFTWARD -1
+#define RIGHTWARD 1
+
 class RigidBody {
 
 public:

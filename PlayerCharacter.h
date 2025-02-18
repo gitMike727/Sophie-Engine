@@ -14,6 +14,7 @@ public:
 	virtual void Update(float dt);
 
 	int idle;
+	
 
 private:
 	//int m_Row, m_Frame, m_FrameCount;
