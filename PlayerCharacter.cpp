@@ -76,6 +76,8 @@ void PlayerCharacter::Update(float dt)
         idle = 4;
     }
     
+    SDL_Log("%f", dt);
+
     m_RigidBody->Update(dt);
 
     m_Transform->TranslateX(m_RigidBody->Position().X);
