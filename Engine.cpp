@@ -38,7 +38,7 @@ bool Engine::Init()
 	TextureManager::GetInstance()->Load("Jack_LeftWalk", "assets/Jack_The_Apprentice_LeftWalk_Sheet.png");
 	TextureManager::GetInstance()->Load("Jack_RightWalk", "assets/Jack_The_Apprentice_RightWalk_Sheet.png");
 	
-	jack = new PlayerCharacter(new Properties("Jack", 100, 100, 64, 64));
+	jack = new PlayerCharacter(new Properties("Jack", 100, 100, 32, 32));
 
 	Transform tf;
 	tf.Log();

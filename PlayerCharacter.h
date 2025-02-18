@@ -14,6 +14,7 @@ public:
 	virtual void Update(float dt);
 
 	int idle;
+	float speed = 4.5;
 	
 
 private:

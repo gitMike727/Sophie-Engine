@@ -40,6 +40,9 @@
     <Filter Include="Source Files\Map">
       <UniqueIdentifier>{bd9437fa-2818-4759-8a41-41d142f554ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Vendor">
+      <UniqueIdentifier>{c10e173a-9028-433a-baa1-8985938ed47c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -65,6 +68,21 @@
     </ClCompile>
     <ClCompile Include="TileLayer.cpp">
       <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MapParser.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\tinyxml-master\tinyxmlparser.cpp">
+      <Filter>Source Files\Vendor</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\tinyxml-master\tinystr.cpp">
+      <Filter>Source Files\Vendor</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\tinyxml-master\tinyxml.cpp">
+      <Filter>Source Files\Vendor</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\tinyxml-master\tinyxmlerror.cpp">
+      <Filter>Source Files\Vendor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="TileLayer.h">
       <Filter>Source Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MapParser.h">
+      <Filter>Source Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\tinyxml-master\tinystr.h">
+      <Filter>Source Files\Vendor</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendor\tinyxml-master\tinyxml.h">
+      <Filter>Source Files\Vendor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

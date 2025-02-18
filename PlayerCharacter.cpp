@@ -46,7 +46,7 @@ void PlayerCharacter::Update(float dt)
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W))
     {
-        m_RigidBody->ApplyForceY(5*UPWARD);
+        m_RigidBody->ApplyForceY(speed*UPWARD);
         m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
         SDL_Log("Key 'W' Pushed!");
         idle = 1;
@@ -54,7 +54,7 @@ void PlayerCharacter::Update(float dt)
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S))
     {
-        m_RigidBody->ApplyForceY(5*DOWNWARD);
+        m_RigidBody->ApplyForceY(speed*DOWNWARD);
         m_Animation->SetProps("Jack_Walk", 1, 8, 100);
         SDL_Log("Key 'S' Pushed!");
         idle = 2;
@@ -62,7 +62,7 @@ void PlayerCharacter::Update(float dt)
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A))
     {
-        m_RigidBody->ApplyForceX(5*LEFTWARD);
+        m_RigidBody->ApplyForceX(speed*LEFTWARD);
         m_Animation->SetProps("Jack_LeftWalk", 1, 8, 100);
         SDL_Log("Key 'A' Pushed!");
         idle = 3;
@@ -70,7 +70,7 @@ void PlayerCharacter::Update(float dt)
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D))
     {
-        m_RigidBody->ApplyForceX(5*RIGHTWARD);
+        m_RigidBody->ApplyForceX(speed*RIGHTWARD);
         m_Animation->SetProps("Jack_RightWalk", 1, 8, 100);
         SDL_Log("Key 'D' Pushed!");
         idle = 4;
