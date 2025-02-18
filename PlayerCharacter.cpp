@@ -23,14 +23,8 @@ void PlayerCharacter::Clean()
 
 void PlayerCharacter::Update(float dt)
 {
-    m_Animation->Update();
    //m_Frame = (SDL_GetTicks() / m_AnimSpeed) % m_FrameCount;
-    m_RigidBody->Update(0.2);
-    
-   m_Transform->TranslateX(m_RigidBody->Position().X);
-   m_Transform->TranslateY(m_RigidBody->Position().Y);
 
-   
    if (idle == 1)
    {
        m_Animation->SetProps("JackBack", 1, 1, 100);
@@ -48,10 +42,7 @@ void PlayerCharacter::Update(float dt)
        m_Animation->SetProps("JackRight", 1, 1, 100);
    }
 
-   
-
-
-    m_RigidBody->UnSetForce();
+   m_RigidBody->UnSetForce();
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W))
     {
@@ -85,5 +76,11 @@ void PlayerCharacter::Update(float dt)
         idle = 4;
     }
     
+    m_RigidBody->Update(dt);
+
+    m_Transform->TranslateX(m_RigidBody->Position().X);
+    m_Transform->TranslateY(m_RigidBody->Position().Y);
+
+    m_Animation->Update();
     
 }

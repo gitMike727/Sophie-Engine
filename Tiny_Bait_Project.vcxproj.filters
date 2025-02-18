@@ -34,6 +34,9 @@
     <Filter Include="Source Files\Inputs">
       <UniqueIdentifier>{54d342a5-c31c-4180-80f2-1829bca0658e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Timer">
+      <UniqueIdentifier>{5a278279-3dad-46de-bf04-fd8b2f4744fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -53,6 +56,9 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Source Files\Inputs</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Source Files\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Source Files\Timer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

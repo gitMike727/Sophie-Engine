@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "PlayerCharacter.h"
 #include "Input.h"
+#include "Timer.h"
 #include <iostream>
 
 Engine* Engine::s_Instance = nullptr;
@@ -63,7 +64,8 @@ void Engine::Quit()
 
 void Engine::Update()
 {
-	jack->Update(0);
+	float dt = Timer::GetInstance()->GetDeltaTime();
+	jack->Update(dt);
 	
 }									 
 
