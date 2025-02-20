@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Timer.h"
 #include "MapParser.h"
+#include "Camera.h"
 #include <iostream>
 
 Engine* Engine::s_Instance = nullptr;
@@ -51,6 +52,8 @@ bool Engine::Init()
 
 	Transform tf;
 	tf.Log();
+	
+	Camera::GetInstance()->SetTarget(jack->GetOrigin());
 
 	return m_IsRunning = true;
 }
@@ -76,6 +79,7 @@ void Engine::Update()
 	float dt = Timer::GetInstance()->GetDeltaTime();
 	m_MainMap->Update();
 	jack->Update(dt);
+	Camera::GetInstance()->Update(dt);
 	
 }									 
 

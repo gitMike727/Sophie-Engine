@@ -3,6 +3,7 @@
 #include "IObject.h"
 #include "Transform.h"
 #include <SDL.h>
+#include "Point.h"
 
 struct Properties {
 
@@ -30,7 +31,13 @@ public:
 		: m_TextureID(props->TextureID), m_Width(props->Width), m_Height(props->Height), m_Flip(props->Flip)
 	{
 		m_Transform = new Transform(props->X, props->Y);
+
+		float px = props->X + props->Width / 2;
+		float py = props->Y + props->Height / 2;
+		m_Origin = new Point(px, py);
 	}
+
+	inline Point* GetOrigin() { return m_Origin; }
 
 	virtual void Draw()=0;
 	virtual void Clean()=0;
@@ -41,6 +48,8 @@ protected:
 	int m_Width, m_Height;
 	std::string m_TextureID;
 	SDL_RendererFlip m_Flip;
+
+	Point* m_Origin;
 
 
 };

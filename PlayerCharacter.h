@@ -23,4 +23,6 @@ private:
 
 	Animation* m_Animation;
 	RigidBody* m_RigidBody;
+
+
 };
