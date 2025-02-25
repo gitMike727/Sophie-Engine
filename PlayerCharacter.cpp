@@ -14,7 +14,7 @@ PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 
     m_RigidBody = new RigidBody();
     
-    m_Animation = new Animation();
+    m_Animation = new SpriteAnimation();
     m_Animation->SetProps(m_TextureID, 1, 1, 100);
 }
 
@@ -37,8 +37,7 @@ void PlayerCharacter::Clean()
 
 void PlayerCharacter::Update(float dt)
 {
-    bool keyProcessed = false;
-
+   
    if (idle == 1)
    {
        m_Animation->SetProps("JackBack", 1, 1, 100);
@@ -56,6 +55,12 @@ void PlayerCharacter::Update(float dt)
        m_Animation->SetProps("JackRight", 1, 1, 100);
    }
 
+   if (fishIdle >= 6)
+   {
+       m_Animation->SetProps("Jack_FishIdle", 1, 1, 100);
+       
+   }
+
    m_RigidBody->UnSetForce();
 
    //walking up
@@ -63,7 +68,7 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceY(speed*UPWARD);
         m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
-       
+        fishIdle = 0;
         idle = 1;
     }
     //walking down
@@ -71,7 +76,7 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceY(speed*DOWNWARD);
         m_Animation->SetProps("Jack_Walk", 1, 8, 100);
-       
+        fishIdle = 0;
         idle = 2;
     }
     //walking left
@@ -79,7 +84,7 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceX(speed*LEFTWARD);
         m_Animation->SetProps("Jack_LeftWalk", 1, 8, 100);
-      
+        fishIdle = 0;
         idle = 3;
     }
     //walking right
@@ -87,30 +92,22 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceX(speed*RIGHTWARD);
         m_Animation->SetProps("Jack_RightWalk", 1, 8, 100);
-      
+        fishIdle = 0;
         idle = 4;
     }
 
-    //Fishing
-    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_F))
-    {
-        if (!keyProcessed) {
-            m_RigidBody->UnSetForce();
-            m_isFishing = true;
-            keyProcessed = true;
-          
-        }
-        
-    }
+ 
 
-    if (m_isFishing && m_FishTime > 0) {
-        m_FishTime -= dt;
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_F)) {
+        m_isFishing = true;
+        std::cout << fishIdle;
+        fishIdle++;
     }
-    else {
+    else if (Input::GetInstance()->GetKeyUp(SDL_SCANCODE_F))
+    {
         m_isFishing = false;
-        m_FishTime = 1.0f;
     }
-    m_RigidBody->Update(dt);
+    
    
     
     //Move on X Axis
@@ -138,7 +135,7 @@ void PlayerCharacter::Update(float dt)
     m_Origin->Y = m_Transform->Y + m_Height / 2;
 
     AnimationState();
-    m_Animation->Update();
+    m_Animation->Update(dt);
     
 }
 

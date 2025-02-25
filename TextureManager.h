@@ -3,6 +3,7 @@
 #include <string>
 #include "SDL.h"
 #include <map>
+#include "Vendor/tinyxml-master/tinyxml.h"
 
 class TextureManager
 {
@@ -12,6 +13,7 @@ public:
 	}
 
 	bool Load(std::string id, std::string filename);
+	bool ParseTextures(std::string source);
 	void Drop(std::string id);
 	void Clean();
 

@@ -14,7 +14,7 @@ void Input::Listen()
 
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
-		case SDL_QUIT: Engine::GetInstance()->Quit(); 
+		case SDL_QUIT: Engine::GetInstance()->Quit();
 			break;
 		case SDL_KEYDOWN: KeyDown();
 			break;
@@ -23,11 +23,17 @@ void Input::Listen()
 
 		}
 	}
+
 }
 
 bool Input::GetKeyDown(SDL_Scancode key)
 {
 	return (m_KeyStates[key] == 1);
+}
+
+bool Input::GetKeyUp(SDL_Scancode key)
+{
+	return (m_KeyStates[key]) == 0;
 }
 
 

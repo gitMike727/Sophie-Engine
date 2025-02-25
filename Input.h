@@ -1,6 +1,8 @@
 #pragma once
 
 #include "SDL.h"
+#include <map>
+#include <iostream>
 
 class Input
 {
@@ -11,6 +13,10 @@ public:
 
 	void Listen();
 	bool GetKeyDown(SDL_Scancode key);
+	bool GetKeyUp(SDL_Scancode key);
+
+	
+	
 
 
 private:

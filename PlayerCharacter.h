@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Character.h"
-#include "Animation.h"
+#include "SpriteAnimation.h"
 #include "RigidBody.h"
 #include "Collider.h"
 #include "Vector2D.h"
+#include "SpriteAnimation.h"
 
 class PlayerCharacter: public Character {
 
@@ -29,7 +30,7 @@ private:
 
 	float m_FishTime = 4.0f;
 
-	Animation* m_Animation;
+	SpriteAnimation* m_Animation;
 	RigidBody* m_RigidBody;
 	Collider* m_Collider;
 	Vector2D m_LastSafePosition;

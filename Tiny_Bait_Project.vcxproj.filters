@@ -60,7 +60,7 @@
     <ClCompile Include="PlayerCharacter.cpp">
       <Filter>Source Files\Character</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
+    <ClCompile Include="SpriteAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
@@ -122,7 +122,7 @@
     <ClInclude Include="GameObject.h">
       <Filter>Source Files\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
+    <ClInclude Include="SpriteAnimation.h">
       <Filter>Source Files\Animation</Filter>
     </ClInclude>
     <ClInclude Include="RigidBody.h">
@@ -163,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>Source Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Source Files\Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
