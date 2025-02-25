@@ -18,7 +18,7 @@ void Input::Listen()
 			break;
 		case SDL_KEYDOWN: KeyDown();
 			break;
-		case SDL_KEYUP: KeyDown();
+		case SDL_KEYUP: KeyUp();
 			break;
 
 		}

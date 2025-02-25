@@ -8,8 +8,9 @@
 
 PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 {
-    m_Collider = new Collider();
-    m_Collider->SetBuffer(0, 0, 0, 0);
+    m_Collider = new Collider();\
+    //Collider 
+    m_Collider->SetBuffer(-8, -12, 0, 0);
 
     m_RigidBody = new RigidBody();
     
@@ -21,6 +22,7 @@ void PlayerCharacter::Draw()
 {
     m_Animation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height);
 
+    //Drawing Collider box
     Vector2D cam = Camera::GetInstance()->GetPosition();
     SDL_Rect box = m_Collider->GetBox();
     box.x -= cam.X;
@@ -35,7 +37,7 @@ void PlayerCharacter::Clean()
 
 void PlayerCharacter::Update(float dt)
 {
-   //m_Frame = (SDL_GetTicks() / m_AnimSpeed) % m_FrameCount;
+    bool keyProcessed = false;
 
    if (idle == 1)
    {
@@ -54,54 +56,68 @@ void PlayerCharacter::Update(float dt)
        m_Animation->SetProps("JackRight", 1, 1, 100);
    }
 
-  
-
    m_RigidBody->UnSetForce();
 
-    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W))
+   //walking up
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W) && !m_isFishing)
     {
         m_RigidBody->ApplyForceY(speed*UPWARD);
         m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
-       // SDL_Log("Key 'W' Pushed!");
+       
         idle = 1;
     }
-
-    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S))
+    //walking down
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S) && !m_isFishing)
     {
         m_RigidBody->ApplyForceY(speed*DOWNWARD);
         m_Animation->SetProps("Jack_Walk", 1, 8, 100);
-       // SDL_Log("Key 'S' Pushed!");
+       
         idle = 2;
     }
-
-    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A))
+    //walking left
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A) && !m_isFishing)
     {
         m_RigidBody->ApplyForceX(speed*LEFTWARD);
         m_Animation->SetProps("Jack_LeftWalk", 1, 8, 100);
-        //SDL_Log("Key 'A' Pushed!");
+      
         idle = 3;
     }
-
-    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D))
+    //walking right
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D) && !m_isFishing)
     {
         m_RigidBody->ApplyForceX(speed*RIGHTWARD);
         m_Animation->SetProps("Jack_RightWalk", 1, 8, 100);
-       // SDL_Log("Key 'D' Pushed!");
+      
         idle = 4;
     }
 
+    //Fishing
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_F))
     {
-        m_Animation->SetProps("Jack_Fishing", 1, 5, 100);
+        if (!keyProcessed) {
+            m_RigidBody->UnSetForce();
+            m_isFishing = true;
+            keyProcessed = true;
+          
+        }
+        
+    }
+
+    if (m_isFishing && m_FishTime > 0) {
+        m_FishTime -= dt;
+    }
+    else {
+        m_isFishing = false;
+        m_FishTime = 1.0f;
     }
     m_RigidBody->Update(dt);
-    //SDL_Log("%f", dt);
+   
     
     //Move on X Axis
     m_RigidBody->Update(dt);
     m_LastSafePosition.X = m_Transform->X;
     m_Transform->TranslateX(m_RigidBody->Position().X);
-    m_Collider->SetBox(m_Transform->X, m_Transform->Y, 32, 32);
+    m_Collider->SetBox(m_Transform->X, m_Transform->Y, 16, 16);
 
   if (CollisionHandler::GetInstance()->MapCollision(m_Collider->GetBox())) {
         m_Transform->X = m_LastSafePosition.X;
@@ -112,7 +128,7 @@ void PlayerCharacter::Update(float dt)
     m_RigidBody->Update(dt); 
     m_LastSafePosition.Y = m_Transform->Y;
     m_Transform->TranslateY(m_RigidBody->Position().Y);
-    m_Collider->SetBox(m_Transform->X, m_Transform->Y, 32, 32);
+    m_Collider->SetBox(m_Transform->X, m_Transform->Y, 16, 16);
     
     if (CollisionHandler::GetInstance()->MapCollision(m_Collider->GetBox())) {
         m_Transform->Y = m_LastSafePosition.Y;
@@ -120,6 +136,19 @@ void PlayerCharacter::Update(float dt)
 
     m_Origin->X = m_Transform->X + m_Width / 2;
     m_Origin->Y = m_Transform->Y + m_Height / 2;
+
+    AnimationState();
     m_Animation->Update();
     
+}
+
+void PlayerCharacter::AnimationState()
+{
+    //fishing
+    if (m_isFishing) {
+        m_Animation->SetProps("Jack_Fishing", 1, 5, 100);   
+    }
+   
+
+
 }

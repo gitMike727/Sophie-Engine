@@ -16,8 +16,8 @@ public:
 	virtual void Update(float dt);
 
 	int idle;
-
-	float speed = 3.5;
+	int fishIdle;
+	float speed = 3.5f;
 
 private:
 	void AnimationState();
@@ -27,7 +27,7 @@ private:
 	
 	bool m_isFishing;
 
-	float m_FishTime;
+	float m_FishTime = 4.0f;
 
 	Animation* m_Animation;
 	RigidBody* m_RigidBody;
