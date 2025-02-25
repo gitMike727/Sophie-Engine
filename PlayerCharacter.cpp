@@ -2,11 +2,17 @@
 #include "TextureManager.h"
 #include "SDL.h"
 #include "Input.h"
+#include "CollisionHandler.h"
+#include "Camera.h"
 
 
 PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 {
+    m_Collider = new Collider();
+    m_Collider->SetBuffer(0, 0, 0, 0);
+
     m_RigidBody = new RigidBody();
+    
     m_Animation = new Animation();
     m_Animation->SetProps(m_TextureID, 1, 1, 100);
 }
@@ -14,6 +20,12 @@ PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 void PlayerCharacter::Draw()
 {
     m_Animation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height);
+
+    Vector2D cam = Camera::GetInstance()->GetPosition();
+    SDL_Rect box = m_Collider->GetBox();
+    box.x -= cam.X;
+    box.y -= cam.Y;
+    SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box);
 }
 
 void PlayerCharacter::Clean()
@@ -42,13 +54,15 @@ void PlayerCharacter::Update(float dt)
        m_Animation->SetProps("JackRight", 1, 1, 100);
    }
 
+  
+
    m_RigidBody->UnSetForce();
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W))
     {
         m_RigidBody->ApplyForceY(speed*UPWARD);
         m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
-        SDL_Log("Key 'W' Pushed!");
+       // SDL_Log("Key 'W' Pushed!");
         idle = 1;
     }
 
@@ -56,7 +70,7 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceY(speed*DOWNWARD);
         m_Animation->SetProps("Jack_Walk", 1, 8, 100);
-        SDL_Log("Key 'S' Pushed!");
+       // SDL_Log("Key 'S' Pushed!");
         idle = 2;
     }
 
@@ -64,7 +78,7 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceX(speed*LEFTWARD);
         m_Animation->SetProps("Jack_LeftWalk", 1, 8, 100);
-        SDL_Log("Key 'A' Pushed!");
+        //SDL_Log("Key 'A' Pushed!");
         idle = 3;
     }
 
@@ -72,16 +86,37 @@ void PlayerCharacter::Update(float dt)
     {
         m_RigidBody->ApplyForceX(speed*RIGHTWARD);
         m_Animation->SetProps("Jack_RightWalk", 1, 8, 100);
-        SDL_Log("Key 'D' Pushed!");
+       // SDL_Log("Key 'D' Pushed!");
         idle = 4;
     }
-    
-    SDL_Log("%f", dt);
 
+    if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_F))
+    {
+        m_Animation->SetProps("Jack_Fishing", 1, 5, 100);
+    }
     m_RigidBody->Update(dt);
-
+    //SDL_Log("%f", dt);
+    
+    //Move on X Axis
+    m_RigidBody->Update(dt);
+    m_LastSafePosition.X = m_Transform->X;
     m_Transform->TranslateX(m_RigidBody->Position().X);
+    m_Collider->SetBox(m_Transform->X, m_Transform->Y, 32, 32);
+
+  if (CollisionHandler::GetInstance()->MapCollision(m_Collider->GetBox())) {
+        m_Transform->X = m_LastSafePosition.X;
+   }
+
+
+    //Move on Y Axis
+    m_RigidBody->Update(dt); 
+    m_LastSafePosition.Y = m_Transform->Y;
     m_Transform->TranslateY(m_RigidBody->Position().Y);
+    m_Collider->SetBox(m_Transform->X, m_Transform->Y, 32, 32);
+    
+    if (CollisionHandler::GetInstance()->MapCollision(m_Collider->GetBox())) {
+        m_Transform->Y = m_LastSafePosition.Y;
+    }
 
     m_Origin->X = m_Transform->X + m_Width / 2;
     m_Origin->Y = m_Transform->Y + m_Height / 2;

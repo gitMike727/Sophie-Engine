@@ -47,6 +47,10 @@ bool Engine::Init()
 	TextureManager::GetInstance()->Load("Jack_BackWalk", "assets/Jack_The_Apprentice_BackWalk_Sheet.png");
 	TextureManager::GetInstance()->Load("Jack_LeftWalk", "assets/Jack_The_Apprentice_LeftWalk_Sheet.png");
 	TextureManager::GetInstance()->Load("Jack_RightWalk", "assets/Jack_The_Apprentice_RightWalk_Sheet.png");
+
+	TextureManager::GetInstance()->Load("Jack_Fishing", "assets/Jack_The_Apprentice_Fishing.png");
+	TextureManager::GetInstance()->Load("Jack_FishIdle", "assets/Jack_The_Apprentice_FishingIdle.png");
+
 	
 	jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
 

@@ -3,6 +3,8 @@
 #include "Character.h"
 #include "Animation.h"
 #include "RigidBody.h"
+#include "Collider.h"
+#include "Vector2D.h"
 
 class PlayerCharacter: public Character {
 
@@ -14,15 +16,23 @@ public:
 	virtual void Update(float dt);
 
 	int idle;
+
 	float speed = 3.5;
+
+private:
+	void AnimationState();
 	
 
 private:
-	//int m_Row, m_Frame, m_FrameCount;
-	//int m_AnimSpeed;
+	
+	bool m_isFishing;
+
+	float m_FishTime;
 
 	Animation* m_Animation;
 	RigidBody* m_RigidBody;
+	Collider* m_Collider;
+	Vector2D m_LastSafePosition;
 
 
 };

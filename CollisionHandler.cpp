@@ -1,9 +1,11 @@
 #include "CollisionHandler.h"
 #include "Engine.h"
 
+CollisionHandler* CollisionHandler::s_Instance = nullptr;
+
 CollisionHandler::CollisionHandler()
 {
-	m_CollisionLayer = (TileLayer*)Engine::GetInstance()->GetMap()->GetMapLayers().back();
+	m_CollisionLayer = (TileLayer*)Engine::GetInstance()->GetMap()->GetMapLayers().front();
 	m_CollisionTileMap = m_CollisionLayer->GetTileMap();
 }
 
@@ -17,8 +19,8 @@ bool CollisionHandler::CheckCollision(SDL_Rect a, SDL_Rect b)
 bool CollisionHandler::MapCollision(SDL_Rect a)
 {
 	int tileSize = 32;
-	int rowCount = 50;
-	int colCount = 40;
+	int rowCount = 40;
+	int colCount = 50;
 
 	int left_Tile = a.x / tileSize;
 	int right_Tile = (a.x + a.w) / tileSize;
