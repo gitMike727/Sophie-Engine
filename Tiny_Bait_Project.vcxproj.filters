@@ -46,6 +46,9 @@
     <Filter Include="Source Files\Camera">
       <UniqueIdentifier>{de54392c-b089-4d98-aa10-6ddfce348f82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Collision">
+      <UniqueIdentifier>{a7489f05-f3d4-4bae-8b8c-8ad03376fd0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Source Files\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Source Files\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

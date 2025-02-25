@@ -23,6 +23,7 @@ public:
 	void Render();
 	void Event();
 
+	inline GameMap* GetMap() { return m_MainMap; }
 	inline bool IsRunning() { return m_IsRunning; }
 	inline SDL_Renderer* GetRenderer() { return m_Renderer; }
 
