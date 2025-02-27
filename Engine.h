@@ -3,6 +3,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "GameMap.h"
+#include "GameObject.h"
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 1400

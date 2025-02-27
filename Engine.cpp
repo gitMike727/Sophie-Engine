@@ -58,7 +58,7 @@ bool Engine::Init()
 
 	
 	PlayerCharacter* jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
-	fish* fish_Spawn = new fish(new Properties("fish_spawn1", 500, 500, 32, 32));
+	fish* fish_Spawn = new fish(new Properties("fish_Spawn1", 600, 800, 32, 32));
 
 	m_GameObjects.push_back(jack);
 	m_GameObjects.push_back(fish_Spawn);
