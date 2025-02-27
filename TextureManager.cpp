@@ -41,7 +41,7 @@ bool TextureManager::ParseTextures(std::string source)
 	std::cout << "Texture parse Successful..." << std::endl;
 	return true;
 }
-void TextureManager::Draw(std::string id, int x, int y, int width, int height, SDL_RendererFlip flip)
+void TextureManager::Draw(std::string id, int x, int y, int width, int height, float xScale, float yScale, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect = { 0, 0, width, height};
 	SDL_Rect dstRect = { x, y, width, height };

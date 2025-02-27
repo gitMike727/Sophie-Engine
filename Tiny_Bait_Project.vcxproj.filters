@@ -96,6 +96,9 @@
     <ClCompile Include="CollisionHandler.cpp">
       <Filter>Source Files\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="SeqAnimation.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextureManager.h">
@@ -165,6 +168,9 @@
       <Filter>Source Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Animation.h">
+      <Filter>Source Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="SeqAnimation.h">
       <Filter>Source Files\Animation</Filter>
     </ClInclude>
   </ItemGroup>

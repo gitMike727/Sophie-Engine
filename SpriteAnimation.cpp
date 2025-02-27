@@ -12,7 +12,7 @@ void SpriteAnimation::Draw(float x, float y, int spriteWidth, int spriteHeight, 
 
 }
 
-SpriteAnimation::SpriteAnimation(bool repeat)
+SpriteAnimation::SpriteAnimation(bool repeat) : Animation(repeat)
 {
 }
 

@@ -33,7 +33,12 @@ bool Engine::Init()
 	}
 
 	if (MapParser::GetInstance()->Load()) {
-		std::cout << "Load map Successful..." << std::endl;
+		std::cout << "Load Map Successful..." << std::endl;
+		
+	}
+	else {
+		std::cout << "Load Map Failed..." << std::endl;
+		return false;
 	}
 
 	m_MainMap = MapParser::GetInstance()->GetMap("MainMap");
@@ -44,12 +49,10 @@ bool Engine::Init()
 	TextureManager::GetInstance()->Load("JackBack", "assets/Jack_The_Apprentice_Back.png");
 	TextureManager::GetInstance()->Load("JackLeft", "assets/Jack_The_Apprentice_Left.png");
 	TextureManager::GetInstance()->Load("JackRight", "assets/Jack_The_Apprentice_Right.png");
-	
 	TextureManager::GetInstance()->Load("Jack_Walk", "assets/Jack_The_Apprentice_Walk_Sheet.png");
 	TextureManager::GetInstance()->Load("Jack_BackWalk", "assets/Jack_The_Apprentice_BackWalk_Sheet.png");
 	TextureManager::GetInstance()->Load("Jack_LeftWalk", "assets/Jack_The_Apprentice_LeftWalk_Sheet.png");
 	TextureManager::GetInstance()->Load("Jack_RightWalk", "assets/Jack_The_Apprentice_RightWalk_Sheet.png");
-
 	TextureManager::GetInstance()->Load("Jack_Fishing", "assets/Jack_The_Apprentice_Fishing.png");
 	TextureManager::GetInstance()->Load("Jack_FishIdle", "assets/Jack_The_Apprentice_FishingIdle.png");*/
 

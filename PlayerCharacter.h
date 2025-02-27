@@ -27,8 +27,12 @@ private:
 private:
 	
 	bool m_isFishing;
-
 	float m_FishTime = 4.0f;
+
+	bool m_isMovingUp;
+	bool m_isMovingDown;
+	bool m_isMovingLeft;
+	bool m_isMovingRight;
 
 	SpriteAnimation* m_Animation;
 	RigidBody* m_RigidBody;

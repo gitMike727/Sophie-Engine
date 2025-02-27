@@ -67,38 +67,51 @@ void PlayerCharacter::Update(float dt)
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_W) && !m_isFishing)
     {
         m_RigidBody->ApplyForceY(speed*UPWARD);
-        m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
+        m_isMovingUp = true;
         fishIdle = 0;
         idle = 1;
+    }
+    else {
+        m_isMovingUp = false;
     }
     //walking down
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_S) && !m_isFishing)
     {
         m_RigidBody->ApplyForceY(speed*DOWNWARD);
-        m_Animation->SetProps("Jack_Walk", 1, 8, 100);
+        m_isMovingDown = true;
         fishIdle = 0;
         idle = 2;
+    }
+    else {
+        m_isMovingDown = false;
     }
     //walking left
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_A) && !m_isFishing)
     {
         m_RigidBody->ApplyForceX(speed*LEFTWARD);
-        m_Animation->SetProps("Jack_LeftWalk", 1, 8, 100);
+        m_isMovingLeft = true;
         fishIdle = 0;
         idle = 3;
+    }
+    else {
+        m_isMovingLeft = false;
     }
     //walking right
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_D) && !m_isFishing)
     {
         m_RigidBody->ApplyForceX(speed*RIGHTWARD);
-        m_Animation->SetProps("Jack_RightWalk", 1, 8, 100);
+        m_isMovingRight = true;
         fishIdle = 0;
         idle = 4;
+    }
+    else {
+        m_isMovingRight = false;
     }
 
  
 
     if (Input::GetInstance()->GetKeyDown(SDL_SCANCODE_F)) {
+        m_RigidBody->UnSetForce();
         m_isFishing = true;
         std::cout << fishIdle;
         fishIdle++;
@@ -142,10 +155,31 @@ void PlayerCharacter::Update(float dt)
 void PlayerCharacter::AnimationState()
 {
     //fishing
-    if (m_isFishing) {
+    if(m_isFishing) {
         m_Animation->SetProps("Jack_Fishing", 1, 5, 100);   
     }
-   
-
-
+    //walking up
+    if(m_isMovingUp) {
+        m_Animation->SetProps("Jack_BackWalk", 1, 8, 100);
+        fishIdle = 0;
+        idle = 1;
+    }
+   //walking down
+    if (m_isMovingDown) {
+        m_Animation->SetProps("Jack_Walk", 1, 8, 100);
+        fishIdle = 0;
+        idle = 2;
+    }
+    //walking left
+    if (m_isMovingLeft) {
+        m_Animation->SetProps("Jack_LeftWalk", 1, 8, 100);
+        fishIdle = 0;
+        idle = 3;
+    }
+    //walking right
+    if (m_isMovingRight) {
+        m_Animation->SetProps("Jack_RightWalk", 1, 8, 100);
+        fishIdle = 0;
+        idle = 4;
+    }
 }
