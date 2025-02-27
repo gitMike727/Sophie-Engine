@@ -7,9 +7,9 @@
 #include "MapParser.h"
 #include "Camera.h"
 #include <iostream>
+#include "fish.h"
 
 Engine* Engine::s_Instance = nullptr;
-PlayerCharacter* jack = nullptr;
 
 bool Engine::Init()
 {
@@ -43,7 +43,7 @@ bool Engine::Init()
 
 	m_MainMap = MapParser::GetInstance()->GetMap("MainMap");
 
-	TextureManager::GetInstance()->ParseTextures("assets/textures.xml");
+	TextureManager::GetInstance()->ParseTextures("assets/textures.tml");
 
 	/*TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
 	TextureManager::GetInstance()->Load("JackBack", "assets/Jack_The_Apprentice_Back.png");
@@ -57,9 +57,13 @@ bool Engine::Init()
 	TextureManager::GetInstance()->Load("Jack_FishIdle", "assets/Jack_The_Apprentice_FishingIdle.png");*/
 
 	
-	jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
+	PlayerCharacter* jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
+	fish* fish_Spawn = new fish(new Properties("fish_spawn1", 500, 500, 32, 32));
 
-	Transform tf;
+	m_GameObjects.push_back(jack);
+	m_GameObjects.push_back(fish_Spawn);
+
+	//Transform tf;
 	//tf.Log();
 	
 	Camera::GetInstance()->SetTarget(jack->GetOrigin());
@@ -75,6 +79,10 @@ bool Engine::Clean()
 	IMG_Quit();
 	SDL_Quit();
 
+	for (unsigned int i = 0; i != m_GameObjects.size(); i++) {
+		m_GameObjects[i]->Clean();
+	}
+
 	return false;
 }
 
@@ -87,7 +95,11 @@ void Engine::Update()
 {
 	float dt = Timer::GetInstance()->GetDeltaTime();
 	m_MainMap->Update();
-	jack->Update(dt);
+	
+	for (unsigned int i = 0; i != m_GameObjects.size(); i++) {
+		m_GameObjects[i]->Update(dt);
+	}
+
 	Camera::GetInstance()->Update(dt);
 	
 }									 
@@ -98,7 +110,10 @@ void Engine::Render()
 	SDL_RenderClear(m_Renderer);
 
 	m_MainMap->Render();
-	jack->Draw();
+	
+	for (unsigned int i = 0; i != m_GameObjects.size(); i++) {
+		m_GameObjects[i]->Draw();
+	}
 	
 	SDL_RenderPresent(m_Renderer);
 }

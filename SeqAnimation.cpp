@@ -22,6 +22,28 @@ void SeqAnimation::Update(float dt)
 
 void SeqAnimation::Parse(std::string source)
 {
+	TiXmlDocument xml;
+	xml.LoadFile(source);
+	if (xml.Error()) {
+		std::cout << "Failed to load animation file: " << source << std::endl;
+	}
+
+	TiXmlElement* root = xml.RootElement();
+	for (TiXmlElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
+		if (e->Value() == std::string("sequence")) {
+			Sequence seq;
+			std::string seqID = e->Attribute("id");
+			e->Attribute("speed", &seq.speed);
+			e->Attribute("width", &seq.width);
+			e->Attribute("height", &seq.height);
+			e->Attribute("frameCount", &seq.frameCount);
+
+			for (TiXmlElement* frame = e->FirstChildElement(); frame != nullptr; frame = frame->NextSiblingElement()) {
+				seq.TextureIDs.push_back(frame->Attribute("textureID"));
+				m_SeqMap[seqID] = seq;
+			}
+		}
+	}
 }
 
 void SeqAnimation::SetCurrSeq(std::string seqID)

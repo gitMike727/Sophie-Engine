@@ -37,6 +37,8 @@ private:
 	SDL_Renderer* m_Renderer;
 
 	static Engine* s_Instance;
+
+	std::vector<GameObject*> m_GameObjects;
 	
 };
 

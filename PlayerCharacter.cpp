@@ -8,7 +8,7 @@
 
 PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 {
-    m_Collider = new Collider();\
+    m_Collider = new Collider();
     //Collider 
     m_Collider->SetBuffer(-8, -12, 0, 0);
 

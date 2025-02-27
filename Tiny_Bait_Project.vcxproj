@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fish.cpp" />
     <ClCompile Include="SeqAnimation.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="fish.h" />
     <ClInclude Include="SeqAnimation.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Camera.h" />

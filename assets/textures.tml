@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<texture>
+    <texture id="Jack" source="assets/Jack_The_Apprentice.png"/>
+    <texture id="JackBack" source="assets/Jack_The_Apprentice_Back.png"/>
+    <texture id="JackLeft" source="assets/Jack_The_Apprentice_Left.png"/>
+    <texture id="JackRight" source="assets/Jack_The_Apprentice_Right.png"/>
+    
+    <texture id="Jack_Walk" source="assets/Jack_The_Apprentice_Walk_Sheet.png"/>
+    <texture id="Jack_BackWalk" source="assets/Jack_The_Apprentice_BackWalk_Sheet.png"/>
+    <texture id="Jack_LeftWalk" source="assets/Jack_The_Apprentice_LeftWalk_Sheet.png"/>
+    <texture id="Jack_RightWalk" source="assets/Jack_The_Apprentice_RightWalk_Sheet.png"/>
+
+    <texture id="Jack_Fishing" source="assets/Jack_The_Apprentice_Fishing.png"/>
+    <texture id="Jack_FishIdle" source="assets/Jack_The_Apprentice_FishingIdle.png"/>
+
+    <texture id="fish_spawn1" source="assets/fish/fish_Spawn1"/>
+    <texture id="fish_spawn2" source="assets/fish/fish_Spawn2"/>
+    <texture id="fish_spawn3" source="assets/fish/fish_Spawn3"/>
+    <texture id="fish_spawn4" source="assets/fish/fish_Spawn4"/>
+    <texture id="fish_spawn5" source="assets/fish/fish_Spawn5"/>
+    <texture id="fish_spawn6" source="assets/fish/fish_Spawn6"/>
+    <texture id="fish_spawn7" source="assets/fish/fish_Spawn7"/>
+    <texture id="fish_spawn8" source="assets/fish/fish_Spawn8"/>
+    <texture id="fish_spawn9" source="assets/fish/fish_Spawn9"/>
+    <texture id="fish_spawn10" source="assets/fish/fish_Spawn10"/>
+    <texture id="fish_spawn11" source="assets/fish/fish_Spawn11"/>
+    <texture id="fish_spawn12" source="assets/fish/fish_Spawn12"/>
+    <texture id="fish_spawn13" source="assets/fish/fish_Spawn13"/>
+    <texture id="fish_spawn14" source="assets/fish/fish_Spawn14"/>
+    <texture id="fish_spawn15" source="assets/fish/fish_Spawn15"/>
+
+
+</texture>

@@ -99,6 +99,9 @@
     <ClCompile Include="SeqAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="fish.cpp">
+      <Filter>Source Files\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextureManager.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="SeqAnimation.h">
       <Filter>Source Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="fish.h">
+      <Filter>Source Files\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animations>
+    <sequence id="Fish_Spawn" frameCount="15" speed="150" width="32" height="32">
+    <frame textureID = "fish_Spawn1"/>
+    <frame textureID = "fish_Spawn2"/>
+    <frame textureID = "fish_Spawn3"/>
+    <frame textureID = "fish_Spawn4"/>
+    <frame textureID = "fish_Spawn5"/>
+    <frame textureID = "fish_Spawn6"/>
+    <frame textureID = "fish_Spawn7"/>
+    <frame textureID = "fish_Spawn8"/>
+    <frame textureID = "fish_Spawn9"/>
+    <frame textureID = "fish_Spawn10"/>
+    <frame textureID = "fish_Spawn11"/>
+    <frame textureID = "fish_Spawn12"/>
+    <frame textureID = "fish_Spawn13"/>
+    <frame textureID = "fish_Spawn14"/>
+    <frame textureID = "fish_Spawn15"/>
+    </sequence>
+</animations>
