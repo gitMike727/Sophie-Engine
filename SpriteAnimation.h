@@ -17,10 +17,6 @@ public:
 
 	int GetCurrFrame() { return m_CurrentFrame; }
 
-	/*int GetCurrSpriteRow() { return m_SpriteRow; }
-	void SetSpriteRow(int row) { m_SpriteRow = row; }
-	void IncrSpriteRow() { m_SpriteRow++; }
-	void DecrSpriteRow() { m_SpriteRow--; }*/
 
 private:
 	int m_SpriteRow, m_SpriteFrame;

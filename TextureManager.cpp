@@ -38,7 +38,7 @@ bool TextureManager::ParseTextures(std::string source)
 		}
 	}
 
-
+	std::cout << "Texture parse Successfull..." << std::endl;
 	return true;
 }
 void TextureManager::Draw(std::string id, int x, int y, int width, int height, SDL_RendererFlip flip)

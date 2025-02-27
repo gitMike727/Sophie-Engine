@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<texture>
+    <texture id="Jack" source="assets/Jack_The_Apprentice.png"/>
+    <texture id="JackBack" source="assets/Jack_The_Apprentice_Back.png"/>
+    <texture id="JackLeft" source="assets/Jack_The_Apprentice_Left.png"/>
+    <texture id="JackRight" source="assets/Jack_The_Apprentice_Right.png"/>
+    
+    <texture id="Jack_Walk" source="assets/Jack_The_Apprentice_Walk_Sheet.png"/>
+    <texture id="Jack_BackWalk" source="assets/Jack_The_Apprentice_BackWalk_Sheet.png"/>
+    <texture id="Jack_LeftWalk" source="assets/Jack_The_Apprentice_LeftWalk_Sheet.png"/>
+    <texture id="Jack_RightWalk" source="assets/Jack_The_Apprentice_RightWalk_Sheet.png"/>
+
+    <texture id="Jack_Fishing" source="assets/Jack_The_Apprentice_Fishing.png"/>
+    <texture id="Jack_FishIdle" source="assets/Jack_The_Apprentice_FishingIdle.png"/>  
+
+</texture>
+

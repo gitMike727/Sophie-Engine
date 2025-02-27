@@ -38,7 +38,9 @@ bool Engine::Init()
 
 	m_MainMap = MapParser::GetInstance()->GetMap("MainMap");
 
-	TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
+	TextureManager::GetInstance()->ParseTextures("assets/textures.xml");
+
+	/*TextureManager::GetInstance()->Load("Jack", "assets/Jack_The_Apprentice.png");
 	TextureManager::GetInstance()->Load("JackBack", "assets/Jack_The_Apprentice_Back.png");
 	TextureManager::GetInstance()->Load("JackLeft", "assets/Jack_The_Apprentice_Left.png");
 	TextureManager::GetInstance()->Load("JackRight", "assets/Jack_The_Apprentice_Right.png");
@@ -49,7 +51,7 @@ bool Engine::Init()
 	TextureManager::GetInstance()->Load("Jack_RightWalk", "assets/Jack_The_Apprentice_RightWalk_Sheet.png");
 
 	TextureManager::GetInstance()->Load("Jack_Fishing", "assets/Jack_The_Apprentice_Fishing.png");
-	TextureManager::GetInstance()->Load("Jack_FishIdle", "assets/Jack_The_Apprentice_FishingIdle.png");
+	TextureManager::GetInstance()->Load("Jack_FishIdle", "assets/Jack_The_Apprentice_FishingIdle.png");*/
 
 	
 	jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
