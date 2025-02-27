@@ -33,7 +33,7 @@ bool Engine::Init()
 	}
 
 	if (MapParser::GetInstance()->Load()) {
-		std::cout << "Failed to load map..." << std::endl;
+		std::cout << "Load map Successful..." << std::endl;
 	}
 
 	m_MainMap = MapParser::GetInstance()->GetMap("MainMap");
@@ -57,7 +57,7 @@ bool Engine::Init()
 	jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
 
 	Transform tf;
-	tf.Log();
+	//tf.Log();
 	
 	Camera::GetInstance()->SetTarget(jack->GetOrigin());
 
