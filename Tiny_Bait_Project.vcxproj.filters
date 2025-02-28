@@ -55,6 +55,9 @@
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{3314de0e-fd25-4936-9bb7-d2d1018a82b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ECS">
+      <UniqueIdentifier>{d6cca2e2-22d7-471e-82f2-1bb4ee3332f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -193,6 +196,15 @@
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Source Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>Source Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Source Files\ECS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

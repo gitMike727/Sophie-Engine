@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Vector2D.h"
+#include "Component.h"
 
-class Transform {
+class Transform : public Component {
 public:
 	float X, Y;
 

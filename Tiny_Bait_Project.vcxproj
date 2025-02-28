@@ -153,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="ECS.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="fish.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="ObjectFactory.h" />
