@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include <iostream>
 #include "fish.h"
+#include "ObjectFactory.h"
 
 Engine* Engine::s_Instance = nullptr;
 
@@ -56,9 +57,10 @@ bool Engine::Init()
 	TextureManager::GetInstance()->Load("Jack_Fishing", "assets/Jack_The_Apprentice_Fishing.png");
 	TextureManager::GetInstance()->Load("Jack_FishIdle", "assets/Jack_The_Apprentice_FishingIdle.png");*/
 
-	
-	PlayerCharacter* jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
-	fish* fish_Spawn = new fish(new Properties("fish_Spawn1", 600, 800, 32, 32));
+	GameObject* jack = ObjectFactory::GetInstance()->CreateObject("PlayerCharacter", new Properties("Jack", 600, 800, 32, 32));
+	GameObject* fish_Spawn = ObjectFactory::GetInstance()->CreateObject("fish", new Properties("Fish_Spawn", 600, 760, 32, 64));
+	//PlayerCharacter* jack = new PlayerCharacter(new Properties("Jack", 600, 800, 32, 32));
+	//fish* fish_Spawn = new fish(new Properties("Fish_Spawn", 600, 760, 32, 32));
 
 	m_GameObjects.push_back(jack);
 	m_GameObjects.push_back(fish_Spawn);
@@ -67,6 +69,7 @@ bool Engine::Init()
 	//tf.Log();
 	
 	Camera::GetInstance()->SetTarget(jack->GetOrigin());
+	Camera::GetInstance()->SetTarget(fish_Spawn->GetOrigin());
 
 	return m_IsRunning = true;
 }

@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="fish.cpp" />
+    <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="SeqAnimation.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -153,6 +154,8 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="fish.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="SeqAnimation.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Camera.h" />

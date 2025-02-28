@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDL.h"
+#include "Camera.h"
 
 class Collider {
 
@@ -15,6 +16,14 @@ public:
 			w - m_Buffer.w,
 			h - m_Buffer.h,
 		};
+	}
+
+	void Draw() {
+		Vector2D cam = Camera::GetInstance()->GetPosition();
+		SDL_Rect box = m_Box;
+		box.x -= cam.X;
+		box.y -= cam.Y;
+		SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box);
 	}
 
 private:

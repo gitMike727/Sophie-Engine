@@ -4,7 +4,10 @@
 #include "Input.h"
 #include "CollisionHandler.h"
 #include "Camera.h"
+#include "Engine.h"
+#include "ObjectFactory.h"
 
+static Register<PlayerCharacter> registerPlayerCharacter("PlayerCharacter");
 
 PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 {
@@ -20,13 +23,8 @@ PlayerCharacter::PlayerCharacter(Properties* props) : Character(props)
 void PlayerCharacter::Draw()
 {
     m_Animation->Draw(m_Transform->X, m_Transform->Y, m_Width, m_Height);
-
-    //Drawing Collider box
-    Vector2D cam = Camera::GetInstance()->GetPosition();
-    SDL_Rect box = m_Collider->GetBox();
-    box.x -= cam.X;
-    box.y -= cam.Y;
-    SDL_RenderDrawRect(Engine::GetInstance()->GetRenderer(), &box);
+	m_Collider->Draw();
+    
 }
 
 void PlayerCharacter::Clean()

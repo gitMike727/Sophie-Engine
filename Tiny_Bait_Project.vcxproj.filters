@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Collision">
       <UniqueIdentifier>{a7489f05-f3d4-4bae-8b8c-8ad03376fd0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Factory">
+      <UniqueIdentifier>{8960295b-6778-414c-a4d9-5c6efd06c4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States">
+      <UniqueIdentifier>{3314de0e-fd25-4936-9bb7-d2d1018a82b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureManager.cpp">
@@ -101,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="fish.cpp">
       <Filter>Source Files\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectFactory.cpp">
+      <Filter>Source Files\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +187,12 @@
     </ClInclude>
     <ClInclude Include="fish.h">
       <Filter>Source Files\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Source Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Source Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

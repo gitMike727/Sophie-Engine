@@ -13,21 +13,21 @@
     <texture id="Jack_Fishing" source="assets/Jack_The_Apprentice_Fishing.png"/>
     <texture id="Jack_FishIdle" source="assets/Jack_The_Apprentice_FishingIdle.png"/>
 
-    <texture id="fish_spawn1" source="assets/fish/fish_Spawn1.png"/>
-    <texture id="fish_spawn2" source="assets/fish/fish_Spawn2.png"/>
-    <texture id="fish_spawn3" source="assets/fish/fish_Spawn3.png"/>
-    <texture id="fish_spawn4" source="assets/fish/fish_Spawn4.png"/>
-    <texture id="fish_spawn5" source="assets/fish/fish_Spawn5.png"/>
-    <texture id="fish_spawn6" source="assets/fish/fish_Spawn6.png"/>
-    <texture id="fish_spawn7" source="assets/fish/fish_Spawn7.png"/>
-    <texture id="fish_spawn8" source="assets/fish/fish_Spawn8.png"/>
-    <texture id="fish_spawn9" source="assets/fish/fish_Spawn9.png"/>
-    <texture id="fish_spawn10" source="assets/fish/fish_Spawn10.png"/>
-    <texture id="fish_spawn11" source="assets/fish/fish_Spawn11.png"/>
-    <texture id="fish_spawn12" source="assets/fish/fish_Spawn12.png"/>
-    <texture id="fish_spawn13" source="assets/fish/fish_Spawn13.png"/>
-    <texture id="fish_spawn14" source="assets/fish/fish_Spawn14.png"/>
-    <texture id="fish_spawn15" source="assets/fish/fish_Spawn15.png"/>
+    <texture id="fish_Spawn1" source="assets/fish/fish_Spawn1.png"/>
+    <texture id="fish_Spawn2" source="assets/fish/fish_Spawn2.png"/>
+    <texture id="fish_Spawn3" source="assets/fish/fish_Spawn3.png"/>
+    <texture id="fish_Spawn4" source="assets/fish/fish_Spawn4.png"/>
+    <texture id="fish_Spawn5" source="assets/fish/fish_Spawn5.png"/>
+    <texture id="fish_Spawn6" source="assets/fish/fish_Spawn6.png"/>
+    <texture id="fish_Spawn7" source="assets/fish/fish_Spawn7.png"/>
+    <texture id="fish_Spawn8" source="assets/fish/fish_Spawn8.png"/>
+    <texture id="fish_Spawn9" source="assets/fish/fish_Spawn9.png"/>
+    <texture id="fish_Spawn10" source="assets/fish/fish_Spawn10.png"/>
+    <texture id="fish_Spawn11" source="assets/fish/fish_Spawn11.png"/>
+    <texture id="fish_Spawn12" source="assets/fish/fish_Spawn12.png"/>
+    <texture id="fish_Spawn13" source="assets/fish/fish_Spawn13.png"/>
+    <texture id="fish_Spawn14" source="assets/fish/fish_Spawn14.png"/>
+    <texture id="fish_Spawn15" source="assets/fish/fish_Spawn15.png"/>
 
 
 </texture>
