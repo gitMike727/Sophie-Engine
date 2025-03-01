@@ -16,9 +16,55 @@ struct Vector2D {
     }
 
     //addition v1+v2
-    inline Vect2D<T> operator+(const Vect2D<T>& v2) const {
+    inline Vector2D<T> operator+(const Vector2D<T>& v2) const {
         return Vect2D<T>(X + v2.x, Y + v2.y )
     }
+
+	//addition v1+=v2
+	inline friend Vector2D<T>& operator+=(Vector2D<T>& v1, const Vector2D<T>& v2) {
+		v1.x += v2.x;
+		v1.y += v2.y;
+		return v1;
+	}
+
+	//subtraction v1-v2
+	inline Vector2D<T> operator-(const Vector2D<T>& v2) const {
+		return Vect2D<T>(X - v2.x, Y - v2.y);
+	}
+
+	//subtraction v1-=v2
+	inline friend Vector2D<T>& operator-=(Vector2D<T>& v1, const Vector2D<T>& v2) {
+		v1.x -= v2.x;
+		v1.y -= v2.y;
+		return v1;
+	}
+
+	//multiplication v1*f
+	inline Vector2D<T> operator*(const T scalar) const {
+		return Vect2D<T>(X * scalar, Y * scalar);
+	}
+
+	//division v1/f
+	inline Vector2D<T> operator/(const T d) const {
+		return (d != 0) ? Vect2D<T>(X / d, Y / d) : Vect2D<T>();
+	}
+
+	inline Vector2D<T>& zero() {
+		this->X = 0;
+		this->Y = 0;
+		return *this;
+	}
+
+	inline Vector2D<T>& ones() {
+		this->X = 1;
+		this->Y = 1;
+		return *this;
+	}
+
+	inline friend std::ostream& operator<<(std::ostream& stream, const Vector2D<T>& v) {
+		stream << "(" << v.X << ", " << v.Y << ")";
+		return stream;
+	}
 };
 
 using Vector2Df = Vector2D<float>;
