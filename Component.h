@@ -8,7 +8,7 @@ public:
 	virtual ~Component() = default;
 	Entity* EntityOwner;
 
-	virtual void Init() {}
+	virtual bool Init() { return true; }
 	virtual void Draw() {}
 	virtual void Update() {}
 	
