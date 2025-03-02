@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "Timer.h"
+#include "Entity.h"
 
 
 int main(int argc, char* argv[])

@@ -4,18 +4,21 @@
 #include <vector>
 #include <memory>
 #include "Component.h"
+#include "Transform.h"
 
 using ComponentList = std::vector<std::unique_ptr<Component>>;
 
 class Entity {
 public: 
-	Entity() {}
-	virtual ~Entity() {}
+	Entity() {
+		this->AddComponent<Transform>(0, 0);
+	}
+	virtual ~Entity() = default;
 
 	template<typename T, typename... TArgs>
 	inline T& AddComponent(TArgs&&... mArgs)
 	{
-		T* component(new T(std::forward<TArgs>(mArgs...)));
+		T* component(new T(std::forward<TArgs>(mArgs)...));
 		std::unique_ptr<Component> uPtr{ component };
 		components.emplace_back(std::move(uPtr));
 
@@ -33,7 +36,22 @@ public:
 		return *static_cast<T*>(ptr);
 	}
 
+	template<typename T>
+	inline bool HasComponent() const {
+		return compBitSet[GetComponentTypeID<T>()];
+	}
+
+	inline bool IsActive() const { return active; }
+
+	inline void Destroy() { active = false; }
+
+	virtual void Draw() { 
+		for (auto& c : components) 
+			c->Update();
+	}
+
 private:
+	bool active;
 	ComponentList compList;
 	ComponentBitSet compBitSet;
 	std::vector<std::unique_ptr<Component>> components;
