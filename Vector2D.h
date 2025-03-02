@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 
+
 template <typename T>
 struct Vector2D {
     T X, Y;

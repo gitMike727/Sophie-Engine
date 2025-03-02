@@ -9,6 +9,7 @@
 #include <iostream>
 #include "fish.h"
 #include "ObjectFactory.h"
+#include "Vector2D.h"
 
 Engine* Engine::s_Instance = nullptr;
 
