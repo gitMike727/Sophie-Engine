@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="fish.cpp" />
     <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="SeqAnimation.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityManager.h" />
     <ClInclude Include="fish.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="ObjectFactory.h" />

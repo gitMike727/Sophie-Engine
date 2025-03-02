@@ -47,6 +47,11 @@ public:
 
 	virtual void Draw() { 
 		for (auto& c : components) 
+			c->Draw();
+	}
+
+	virtual void Update() {
+		for (auto& c : components)
 			c->Update();
 	}
 

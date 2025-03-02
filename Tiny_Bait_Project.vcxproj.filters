@@ -114,6 +114,9 @@
     <ClCompile Include="ObjectFactory.cpp">
       <Filter>Source Files\Factory</Filter>
     </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextureManager.h">
@@ -204,6 +207,9 @@
       <Filter>Source Files\ECS</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
+      <Filter>Source Files\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
       <Filter>Source Files\ECS</Filter>
     </ClInclude>
   </ItemGroup>
