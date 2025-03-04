@@ -1,25 +1,33 @@
-#include <SDL.h>
-#include <stdio.h>
-#include "Engine.h"
+#include <stdlib.h>
+#include <time.h>
+#include "Graphics.h"
+#include "game/world.h"
+#include "input/inputs.h"
 
-Engine* engine = nullptr;
+int main() {
 
-int main(int argc, char* args[])
-{
-	//engine = new Engine();
-	//
-	//engine->Init("SOPHIE ENGINE | Tiny Bait", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    // Initialize random seed
+    srand(time(NULL));
 
-	//while (engine->running()) {
-	//	engine->HandleEvents();
-	//	engine->Update();
-	//	engine->Render();
-	//}
+    Inputs inputs;
+    Graphics graphics;
+    World world(graphics.get_width(), graphics.get_height());
 
-	//engine->Clean();
+    bool loop = true;
 
-	return 0;
-}
+    while (loop) {
 
+        inputs.update();
+        loop = !inputs.get_quit();
 
+        world.update(&inputs);
 
+        graphics.clear_screen();
+        graphics.render_entities(world.get_entities(), world.get_delta());
+        graphics.render_overlay(world.get_entities());
+
+        graphics.present_renderer(world.get_delta());
+
+    }
+
+    return 0;
