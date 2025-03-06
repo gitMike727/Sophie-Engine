@@ -46,6 +46,10 @@ bool Engine::Init()
 Engine::Engine()
 {
     Init();
+    assetManager = new AssetManager(renderer);
+    assetManager->load_resources();
+
+    fps_counter = FPSCounter();
 }
 
 void Engine::ClearScreen()
@@ -73,6 +77,7 @@ Engine::~Engine()
 {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    delete assetManager;
 }
 
 
