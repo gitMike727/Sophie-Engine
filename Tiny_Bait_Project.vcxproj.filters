@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{6f433293-0de8-4d83-8e9c-012de43f9b55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Inputs">
+      <UniqueIdentifier>{e1c515df-2480-4527-a351-4e26eaf34e92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,10 +27,19 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Inputs.cpp">
+      <Filter>Source Files\Inputs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Defs.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Inputs.h">
+      <Filter>Source Files\Inputs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
